@@ -79,7 +79,13 @@ buttonDealerElement.addEventListener('click', handleDealerBtnClick);
 function handleKey(event) {
     if (event.code === 'Space') {
         play('player');
-        play('dealer');
+        play('dealer')
+
+        // pour remettre à plus tard l'execution d'une fonction on peut utiliser setTimeout
+        // c'est une fonction qu'on execute et à qui on donne 2 arguments : 1 la fonction qui devra être executé plus tard, 2 le délai en millisecondes
+        // setTimeout(function() {
+        //     play('dealer');
+        // }, 1000);
     }
 }
 
