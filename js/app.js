@@ -19,16 +19,16 @@ function calculOffset(face) {
 }
 
 // fonction qui lance un dé
-function throwDice() {
+function throwDice(targetId) {
     // écrire la recette pour afficher un dé
     // créer une div
     var diceElement = document.createElement('div');
     // la configurer avec la classe dice
     diceElement.className = 'dice';
     // cibler la div avec l'id player
-    var playerElement = document.getElementById('player');
+    var targetElement = document.getElementById(targetId);
     // insérer la nouvelle div dans la div avec l'id player
-    playerElement.appendChild(diceElement);
+    targetElement.appendChild(diceElement);
     // tirer un nombre aléatoire et s'en servir pour changer la face du dé
     // tirer un nombre entre 1 et 6
     var number = generateNumber(1, 6);
@@ -42,5 +42,6 @@ function throwDice() {
 var numberOfDice = parseInt(prompt('Combien voulez-vous de dés'), 10);
 
 for (var counter = 0; counter < numberOfDice; counter++) {
-    throwDice();
+    throwDice('player');
+    throwDice('dealer');
 }
