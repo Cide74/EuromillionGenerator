@@ -1,6 +1,5 @@
 // Objectif ultime: lancer des dés
 
-
 // Fonction qui génère un nombre entier aléatoire
 // Prends 2 paramètres représentant le minimum et le maximum
 // Retourne un nombre aléatoire compris entre minimum et maximum
