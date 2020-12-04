@@ -45,12 +45,12 @@ function resetZone(zoneId) {
     zone.innerHTML = '';
 }
 
-// var numberOfDice = parseInt(prompt('Combien voulez-vous de dés'), 10);
-
-// for (var counter = 0; counter < numberOfDice; counter++) {
-//     throwDice('player');
-//     throwDice('dealer');
-// }
+function play(zone) {
+    resetZone(zone);
+    for (var counter = 0; counter < numberOfDice; counter++) {
+        throwDice(zone);
+    }
+}
 
 var numberOfDice = 3;
 
@@ -60,23 +60,27 @@ var buttonPlayerElement = document.querySelector('#playerBtn');
 
 // je prépare quoi faire
 function handlePlayerBtnClick() {
-    resetZone('player');
-    for (var counter = 0; counter < numberOfDice; counter++) {
-        throwDice('player');
-    }
+    play('player');
 }
 
 // je pose mon écouteur
 buttonPlayerElement.addEventListener('click', handlePlayerBtnClick);
 
-// ajouter un écouteur d'événement sur le bouton qui possède l'id dealerBtn pour afficher en console 'coucou' au click
+// idem pour dealer
 var buttonDealerElement = document.querySelector('#dealerBtn');
 
 function handleDealerBtnClick() {
-    resetZone('dealer');
-    for (var counter = 0; counter < numberOfDice; counter++) {
-        throwDice('dealer');
-    }
+    play('dealer');
 }
 
 buttonDealerElement.addEventListener('click', handleDealerBtnClick);
+
+// on peut écouter des évenements sur l'ensemble du document
+function handleKey(event) {
+    if (event.code === 'Space') {
+        play('player');
+        play('dealer');
+    }
+}
+
+document.addEventListener('keyup', handleKey);
