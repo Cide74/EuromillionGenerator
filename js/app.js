@@ -18,22 +18,29 @@ function calculOffset(face) {
     return offset;
 }
 
-// écrire la recette pour afficher un dé
-// créer une div
-var diceElement = document.createElement('div');
-// la configurer avec la classe dice
-diceElement.className = 'dice';
-// cibler la div avec l'id player
-var playerElement = document.getElementById('player');
-// insérer la nouvelle div dans la div avec l'id player
-playerElement.appendChild(diceElement);
+// fonction qui lance un dé
+function throwDice() {
+    // écrire la recette pour afficher un dé
+    // créer une div
+    var diceElement = document.createElement('div');
+    // la configurer avec la classe dice
+    diceElement.className = 'dice';
+    // cibler la div avec l'id player
+    var playerElement = document.getElementById('player');
+    // insérer la nouvelle div dans la div avec l'id player
+    playerElement.appendChild(diceElement);
+    // tirer un nombre aléatoire et s'en servir pour changer la face du dé
+    // tirer un nombre entre 1 et 6
+    var number = generateNumber(1, 6);
+    // se servir de ce nombre pour en déduire un background position -> (x-1) * -100 px
+    var backgroundPositionValue = calculOffset(number);
+    // // configurer les style du dé pour lui mettre le background-position
+    diceElement.style.backgroundPositionX = backgroundPositionValue;
+}
 
-// tirer un nombre aléatoire et s'en servir pour changer la face du dé
-// tirer un nombre entre 1 et 6
-var number = generateNumber(1, 6);
-// se servir de ce nombre pour en déduire un background position -> (x-1) * -100 px
-var backgroundPositionValue = calculOffset(number);
-// // configurer les style du dé pour lui mettre le background-position
-diceElement.style.backgroundPositionX = backgroundPositionValue;
 
-// répéter l'opération plusieurs fois
+var numberOfDice = parseInt(prompt('Combien voulez-vous de dés'), 10);
+
+for (var counter = 0; counter < numberOfDice; counter++) {
+    throwDice();
+}
