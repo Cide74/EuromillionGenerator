@@ -37,10 +37,22 @@ function throwDice(targetId) {
     diceElement.style.backgroundPositionX = backgroundPositionValue;
 }
 
+// var numberOfDice = parseInt(prompt('Combien voulez-vous de dés'), 10);
 
-var numberOfDice = parseInt(prompt('Combien voulez-vous de dés'), 10);
+// for (var counter = 0; counter < numberOfDice; counter++) {
+//     throwDice('player');
+//     throwDice('dealer');
+// }
 
-for (var counter = 0; counter < numberOfDice; counter++) {
-    throwDice('player');
-    throwDice('dealer');
+var numberOfDice = 3;
+
+// je cible l'élement interactif
+var buttonPlayerElement = document.querySelector('#playerBtn');
+
+// je prépare quoi faire
+function handlePlayerBtnClick() {
+    console.log('je réagis au click');
 }
+
+// je pose mon écouteur
+buttonPlayerElement.addEventListener('click', handlePlayerBtnClick);

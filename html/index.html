@@ -7,6 +7,18 @@
     <title>Roll</title>
 </head>
 <body>
+    <div id="controls">
+        <form>
+            <label>
+                Combien voulez-vous de dés ?
+                <input type="number">
+            </label>
+            <button type="submit">Ok</button>
+        </form>
+        <div>Nombre de dés au prochain lancé : <span id="diceNumber">3</span></div>
+        <button id="playerBtn" type="button">Lancer les dés du joueur</button>
+        <button id="dealerBtn" type="button">Lancer les dés de l'adversaire</button>
+    </div>
     <div id="app">
         <div class="board" id="player"></div>
         <div class="board" id="dealer"></div>
