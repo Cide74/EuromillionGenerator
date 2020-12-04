@@ -37,6 +37,14 @@ function throwDice(targetId) {
     diceElement.style.backgroundPositionX = backgroundPositionValue;
 }
 
+
+function resetZone(zoneId) {
+    // je cible la div à l'id demandé
+    var zone = document.getElementById(zoneId);
+    // je réécris son contenu html, en mettant une chaîne de caractère vide cela revient à vider la div
+    zone.innerHTML = '';
+}
+
 // var numberOfDice = parseInt(prompt('Combien voulez-vous de dés'), 10);
 
 // for (var counter = 0; counter < numberOfDice; counter++) {
@@ -49,10 +57,26 @@ var numberOfDice = 3;
 // je cible l'élement interactif
 var buttonPlayerElement = document.querySelector('#playerBtn');
 
+
 // je prépare quoi faire
 function handlePlayerBtnClick() {
-    console.log('je réagis au click');
+    resetZone('player');
+    for (var counter = 0; counter < numberOfDice; counter++) {
+        throwDice('player');
+    }
 }
 
 // je pose mon écouteur
 buttonPlayerElement.addEventListener('click', handlePlayerBtnClick);
+
+// ajouter un écouteur d'événement sur le bouton qui possède l'id dealerBtn pour afficher en console 'coucou' au click
+var buttonDealerElement = document.querySelector('#dealerBtn');
+
+function handleDealerBtnClick() {
+    resetZone('dealer');
+    for (var counter = 0; counter < numberOfDice; counter++) {
+        throwDice('dealer');
+    }
+}
+
+buttonDealerElement.addEventListener('click', handleDealerBtnClick);
