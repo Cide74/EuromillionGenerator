@@ -84,3 +84,39 @@ function handleKey(event) {
 }
 
 document.addEventListener('keyup', handleKey);
+
+// cibler le form
+var formElement = document.getElementById('configForm');
+
+// poser un écouteur
+// via l'événement submit on réagit à la soumission form, que ce soit via un bouton submit ou via la touche entrée
+formElement.addEventListener('submit', function(event) {
+    // 1ère chose à faire : empecher la soumission par défaut du formulaire qui actualise la page
+    // la méthode preventDefault empeche le comportement par défaut d'un événement
+    event.preventDefault();
+    
+    // je veux récupérer la valeur saisie dans le champ
+    var diceNumberElement = document.getElementById('diceNumberInput');
+    // on remarque une propriété value sur les element input, voir même valueAsNumber pour les input de type number
+    // console.dir(diceNumberElement);
+    numberOfDice = diceNumberElement.valueAsNumber;
+    
+    // je cible le span
+    var spanElement = document.getElementById('diceNumber');
+    // je change son texte
+    spanElement.textContent = numberOfDice;
+});
+
+
+
+// rappel:  un objet peut contenir des propriétés : des paires clés: valeur
+//          et des méthodes : des paires clés: fonction
+// var alexis = {
+//     age: 30,
+//     nom: 'Vincent',
+//     direBonjour: function() {
+//         console.log('bonjour');
+//     },
+// };
+// alexis.age; // je lis une propriété
+// alexis.direBonjour(); // j'execute une méthode
