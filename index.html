@@ -16,9 +16,10 @@
             </label>
             <button type="submit">Ok</button>
         </form>
-        <div>Nombre de grill au prochain lancé : <span id="statNumber">2</span></div>
+        <div>Nombre de grill au prochain lancé : <span id="statNumber">1</span></div>
     </div>
     <div id="app">
+
         <div class="board" id="number">
             <form id="configForm-number">
                 <label>
@@ -28,10 +29,13 @@
                 <button type="submit">Ok</button>
             </form>
             <div>Nombre de numéro au prochain lancé : <span id="numberNumber">5</span></div>
+           
             <button id="numberBtn" type="button">générateur de numéro</button>
+            <div id="tirageNumber"></div>
         </div>
+
         <div class="board" id="star">
-            <form id="configForm-start">
+            <form id="configForm-star">
                 <label>
                     Combien voulez-vous d'étoiles ?
                     <input id="nombreStartAsk" type="number">
@@ -39,8 +43,10 @@
                 <button type="submit">Ok</button>
             </form>
             
-            <div>Nombre d'étoiles au prochain lancé : <span id="grillNumber">1</span></div>
+            <div>Nombre d'étoiles au prochain lancé : <span id="startNumber">2</span></div>
+           
             <button id="startBtn" type="button">générateur pour les étoiles</button>
+            <div id="tirageStar"></div>
         </div>
     </div>
     <script src="../EuromillionGenerator/js/app.js"></script>
