@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../EuromillionGenerator/css/reset.css">
+    <link rel="stylesheet" href="../EuromillionGenerator/css/styles.css">
+    <title>Euromillion Generator</title>
+</head>
+<body>
+    <div id="euromillion-generator">
+        <h1>Bienvenue au générateur de grill pour l'euromillion</h1>
+        <form id="configForm">
+            <label>
+                Combien voulez-vous de grille ?
+                <input id="grillNumberInput" type="number">
+            </label>
+            <button type="submit">Ok</button>
+        </form>
+        <div>Nombre de grill au prochain lancé : <span id="statNumber">2</span></div>
+    </div>
+    <div id="app">
+        <div class="board" id="number">
+            <form id="configForm-number">
+                <label>
+                    Combien voulez-vous de numéros ?
+                    <input id="nombreNombertAsk" type="number">
+                </label>
+                <button type="submit">Ok</button>
+            </form>
+            <div>Nombre de numéro au prochain lancé : <span id="numberNumber">5</span></div>
+            <button id="numberBtn" type="button">générateur de numéro</button>
+        </div>
+        <div class="board" id="star">
+            <form id="configForm-start">
+                <label>
+                    Combien voulez-vous d'étoiles ?
+                    <input id="nombreStartAsk" type="number">
+                </label>
+                <button type="submit">Ok</button>
+            </form>
+            
+            <div>Nombre d'étoiles au prochain lancé : <span id="grillNumber">1</span></div>
+            <button id="startBtn" type="button">générateur pour les étoiles</button>
+        </div>
+    </div>
+    <script src="../EuromillionGenerator/js/app.js"></script>
+</body>
+</html>

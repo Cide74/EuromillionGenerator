@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Roll</title>
+    <title>Euromillion Generator</title>
 </head>
 <body>
-    <div id="controls">
+    <div id="euromillion-generator">
+        <h1>Bienvenue au générateur de grill pour l'euromillion</h1>
         <form id="configForm">
             <label>
-                Combien voulez-vous de dés ?
-                <input id="diceNumberInput" type="number">
+                Combien voulez-vous de griller ?
+                <input id="grillNumberInput" type="number">
             </label>
             <button type="submit">Ok</button>
         </form>
-        <div>Nombre de dés au prochain lancé : <span id="diceNumber">3</span></div>
-        <button id="playerBtn" type="button">Lancer les dés du joueur</button>
-        <button id="dealerBtn" type="button">Lancer les dés de l'adversaire</button>
+        <div>Nombre de grill au prochain lancé : <span id="grillNumber">3</span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <button id="numberBtn" type="button">générateur de numéro</button>
+        <button id="startBtn" type="button">générateur pour les étoiles</button>
     </div>
     <div id="app">
-        <div class="board" id="player"></div>
-        <div class="board" id="dealer"></div>
+        <div class="board" id="number"></div>
+        <div class="board" id="star"></div>
     </div>
-    <script src="../js/app.js"></script>
+    <script src="../js/apptest.js"></script>
 </body>
 </html>

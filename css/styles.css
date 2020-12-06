@@ -1,17 +1,19 @@
 body {
-  background-color: #f39c12;
+  background-color: #00329b;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
 }
 
-#app {
-  display: flex;
-}
-
-#player {
-  background-color: #f39c12;
-}
-
-#dealer {
-  background-color: #e67e22;
+button {
+  background-color: purple;
+  color: white;
+  border: 0;
+  padding: 0.5rem;
+  border-bottom: white 2px solid;
+  border-radius: 3rem;
+  border-color: tomato;
+  font-size: 2rem;
 }
 
 .board {
@@ -24,35 +26,15 @@ body {
   align-content: center;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(3turn);
-  }
+#app {
+  display: flex;
 }
 
-.dice {
-  background-image: url('../images/dice-sprite.png');
-  width: 100px;
-  height: 100px;
-  margin: 1em;
-  animation: rotate 0.6s 0s 1;
+#number {
+  background-color: #001367;
+  
 }
 
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, .3);
-}
-
-button {
-  background-color: purple;
-  color: white;
-  border: 0;
-  padding: 0.5rem;
+#star {
+  background-color: #eebb05;
 }

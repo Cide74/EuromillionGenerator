@@ -1,128 +1,76 @@
-// Objectif ultime: lancer des dés
+//? Objectif c'est de creer un generateur pour l'euromillion en fonction du nombre de numero et d'etoile choisi par tirage 
 
-// Fonction qui génère un nombre entier aléatoire
-// Prends 2 paramètres représentant le minimum et le maximum
-// Retourne un nombre aléatoire compris entre minimum et maximum
-function generateNumber(min, max) {
-    // Merci MDN, formule pour avoir un nombre entier compris entre min et max inclus
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+        / les fonctions utilisées /
+
+            function generateNumber(min, max) {  
+                return Math.floor(Math.random() * (max - min + 1)) + min;   
+            }
+
+
+// creer un generateur de numéro allant de 1 à 50 et pour les étoiles de 1 à 12
+
+    // Retourne un nombre aléatoire compris entre 1 et 50
+        
+    function oneGrill () {
+        var randomNumber = generateNumber(1, 50)
+        console.log( randomNumber );
+     }
+        for(var counter = 0; counter < 5; counter++) { //on la repette 5 fois
+        oneGrill();
+        }
+
+    // creer un generateur d'étoile allant de 1 à 12
+     function startGrill () {
+        var randomStart = generateNumber(1, 12)
+        console.log( randomStart );
+     }
+        for(var counter = 0; counter < 2; counter++) { //on la repette 2 fois
+        startGrill();
+        }
+
+
+Afficher le 
+
+/*
+
+
+
+// générer une grille avec 5 nombres et 2 etoiles
+
+for(var counter = 0; counter < 5; counter++) { //on la repette 5 fois
+    number();
 }
+console.log( generateNumber)
 
-// fonction calculOffset qui retourne une chaîne de caractère
-// Cette fonction doit prendre 1 paramètre représentant le numéro de la face et retourner la chaine de caractère qui va bien, par exemple -> si je reçois 3 je retourne '-200px'
-function calculOffset(face) {
-    var offset = face - 1;
-    offset = offset * -100;
-    offset = offset + 'px';
-    return offset;
+for(var counter = 0; counter < 2; counter++) { //on la repette 2 fois
+    generateStart();
 }
-
-// fonction qui lance un dé
-function throwDice(targetId) {
-    // écrire la recette pour afficher un dé
-    // créer une div
-    var diceElement = document.createElement('div');
-    // la configurer avec la classe dice
-    diceElement.className = 'dice';
-    // cibler la div avec l'id player
-    var targetElement = document.getElementById(targetId);
-    // insérer la nouvelle div dans la div avec l'id player
-    targetElement.appendChild(diceElement);
-    // tirer un nombre aléatoire et s'en servir pour changer la face du dé
-    // tirer un nombre entre 1 et 6
-    var number = generateNumber(1, 6);
-    // se servir de ce nombre pour en déduire un background position -> (x-1) * -100 px
-    var backgroundPositionValue = calculOffset(number);
-    // // configurer les style du dé pour lui mettre le background-position
-    diceElement.style.backgroundPositionX = backgroundPositionValue;
-}
+console.log( generateStart)
 
 
-function resetZone(zoneId) {
-    // je cible la div à l'id demandé
-    var zone = document.getElementById(zoneId);
-    // je réécris son contenu html, en mettant une chaîne de caractère vide cela revient à vider la div
-    zone.innerHTML = '';
-}
 
-function play(zone) {
-    resetZone(zone);
-    for (var counter = 0; counter < numberOfDice; counter++) {
-        throwDice(zone);
+function game() {
+
+    //var count = 0; count> 10; count++;
+    var appElement = document.getElementById('player');
+    var newDivElement = document.createElement ('div');
+    newDivElement.classList.add('dice')
+    appElement.appendChild(newDivElement);      
+   
+    function searchedNumber(min, max) {
+        var number = Math.round(Math.random() * (max - min + 1));
+        return number;
     }
-}
-
-var numberOfDice = 3;
-
-// je cible l'élement interactif
-var buttonPlayerElement = document.querySelector('#playerBtn');
-
-
-// je prépare quoi faire
-function handlePlayerBtnClick() {
-    play('player');
-}
-
-// je pose mon écouteur
-buttonPlayerElement.addEventListener('click', handlePlayerBtnClick);
-
-// idem pour dealer
-var buttonDealerElement = document.querySelector('#dealerBtn');
-
-function handleDealerBtnClick() {
-    play('dealer');
-}
-
-buttonDealerElement.addEventListener('click', handleDealerBtnClick);
-
-// on peut écouter des évenements sur l'ensemble du document
-function handleKey(event) {
-    if (event.code === 'Space') {
-        play('player');
-        play('dealer')
-
-        // pour remettre à plus tard l'execution d'une fonction on peut utiliser setTimeout
-        // c'est une fonction qu'on execute et à qui on donne 2 arguments : 1 la fonction qui devra être executé plus tard, 2 le délai en millisecondes
-        // setTimeout(function() {
-        //     play('dealer');
-        // }, 1000);
-    }
-}
-
-document.addEventListener('keyup', handleKey);
-
-// cibler le form
-var formElement = document.getElementById('configForm');
-
-// poser un écouteur
-// via l'événement submit on réagit à la soumission form, que ce soit via un bouton submit ou via la touche entrée
-formElement.addEventListener('submit', function(event) {
-    // 1ère chose à faire : empecher la soumission par défaut du formulaire qui actualise la page
-    // la méthode preventDefault empeche le comportement par défaut d'un événement
-    event.preventDefault();
     
-    // je veux récupérer la valeur saisie dans le champ
-    var diceNumberElement = document.getElementById('diceNumberInput');
-    // on remarque une propriété value sur les element input, voir même valueAsNumber pour les input de type number
-    // console.dir(diceNumberElement);
-    numberOfDice = diceNumberElement.valueAsNumber;
+    var fullNumber = searchedNumber ( 1, 6);
+    console.log (fullNumber);
     
-    // je cible le span
-    var spanElement = document.getElementById('diceNumber');
-    // je change son texte
-    spanElement.textContent = numberOfDice;
-});
+    //newDivElement.style.backgroundPosition = "-"+(fullNumber-1)*100+"px";
+
+}
 
 
-
-// rappel:  un objet peut contenir des propriétés : des paires clés: valeur
-//          et des méthodes : des paires clés: fonction
-// var alexis = {
-//     age: 30,
-//     nom: 'Vincent',
-//     direBonjour: function() {
-//         console.log('bonjour');
-//     },
-// };
-// alexis.age; // je lis une propriété
-// alexis.direBonjour(); // j'execute une méthode
+game()
+game()
+game()
+*/
